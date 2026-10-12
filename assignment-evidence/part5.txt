@@ -1,0 +1,23 @@
+=== RUN   TestLetterGradeBoundaries
+--- PASS: TestLetterGradeBoundaries (0.00s)
+=== RUN   TestCategoryAveragesAndWeights
+--- PASS: TestCategoryAveragesAndWeights (0.00s)
+=== RUN   TestEssayUsesItsOwnScores
+--- PASS: TestEssayUsesItsOwnScores (0.00s)
+=== RUN   TestFractionalCategoryAverage
+--- PASS: TestFractionalCategoryAverage (0.00s)
+=== RUN   TestEmptyCategories
+--- PASS: TestEmptyCategories (0.00s)
+=== RUN   TestGradeTypeNames
+--- PASS: TestGradeTypeNames (0.00s)
+=== RUN   TestUnknownGradeTypeIsIgnored
+--- PASS: TestUnknownGradeTypeIsIgnored (0.00s)
+=== RUN   TestGetGradeA
+--- PASS: TestGetGradeA (0.00s)
+=== RUN   TestGetGradeB
+--- PASS: TestGetGradeB (0.00s)
+=== RUN   TestGetGradeF
+--- PASS: TestGetGradeF (0.00s)
+PASS
+coverage: 100.0% of statements
+ok  	esep/grade-calculator	0.177s	coverage: 100.0% of statements

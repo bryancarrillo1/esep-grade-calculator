@@ -73,3 +73,21 @@ and expand the tests; inspect the commit history to reproduce each stage.
 - https://go.dev/doc/tutorial/add-a-test
 - https://go.dev/blog/cover
 - https://pkg.go.dev/testing
+
+## Completed Parts 1 through 6
+
+The implementation stores all grades in one list and preserves fractional
+averages. Empty categories contribute zero without redistributing their weights;
+unknown grade types are ignored. Integer percentage scores from 0 to 100 are
+assumed; input validation and out-of-range scores remain requirements to clarify.
+Letter cutoffs are A >= 90, B >= 80, C >= 70, D >= 60, and F below 60, using the
+unrounded weighted total. The Canvas grade-scale bullets were absent from the
+provided text, so confirm these starter cutoffs before submission.
+
+All 10 final top-level test functions pass. Part 3 covers 23/27 statements (85.2%);
+Part 4 covers 27/27 (100.0%); Part 5's separate assertion-free copy also covers
+27/27 (100.0%); Part 6 covers 26/26 (100.0%). Part 6 changes production code only.
+
+See `assignment-evidence/` for measured results. Tests ran with Go 1.27.2 on macOS
+arm64; the declared minimum version remains Go 1.24.4. The final code retains all
+assertions. Part 7 is outside this submission's scope.
