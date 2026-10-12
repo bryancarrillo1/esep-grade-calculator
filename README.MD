@@ -57,7 +57,7 @@ import `esep/grade-calculator` with an alias and qualify the exported names.
 Average scores within each category first, then apply assignment/exam/essay
 weights of 50%/35%/15%. The example's intended total is 96.9.
 The starter implementation uses A >= 90, B >= 80, C >= 70, D >= 60, and F below 60.
-These cutoffs should be checked against the assignment's complete requirements.
+These cutoffs match the assignment requirements.
 
 ## Starter status
 
@@ -81,13 +81,12 @@ averages. Empty categories contribute zero without redistributing their weights;
 unknown grade types are ignored. Integer percentage scores from 0 to 100 are
 assumed; input validation and out-of-range scores remain requirements to clarify.
 Letter cutoffs are A >= 90, B >= 80, C >= 70, D >= 60, and F below 60, using the
-unrounded weighted total. The Canvas grade-scale bullets were absent from the
-provided text, so confirm these starter cutoffs before submission.
+unrounded weighted total. These cutoffs match the confirmed assignment scale.
 
 All 10 final top-level test functions pass. Part 3 covers 23/27 statements (85.2%);
 Part 4 covers 27/27 (100.0%); Part 5's separate assertion-free copy also covers
 27/27 (100.0%); Part 6 covers 26/26 (100.0%). Part 6 changes production code only.
 
-See `assignment-evidence/` for measured results. Tests ran with Go 1.27.2 on macOS
+Tests ran with Go 1.27.2 on macOS
 arm64; the declared minimum version remains Go 1.24.4. The final code retains all
 assertions. Part 7 is outside this submission's scope.

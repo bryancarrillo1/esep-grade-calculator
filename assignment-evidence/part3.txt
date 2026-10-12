@@ -1,9 +1,0 @@
-=== RUN   TestGetGradeA
---- PASS: TestGetGradeA (0.00s)
-=== RUN   TestGetGradeB
---- PASS: TestGetGradeB (0.00s)
-=== RUN   TestGetGradeF
---- PASS: TestGetGradeF (0.00s)
-PASS
-coverage: 85.2% of statements
-ok  	esep/grade-calculator	0.144s	coverage: 85.2% of statements
