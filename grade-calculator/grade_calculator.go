@@ -1,9 +1,7 @@
 package esepunittests
 
 type GradeCalculator struct {
-	assignments []Grade
-	exams       []Grade
-	essays      []Grade
+	grades []Grade
 }
 
 type GradeType int
@@ -31,11 +29,7 @@ type Grade struct {
 }
 
 func NewGradeCalculator() *GradeCalculator {
-	return &GradeCalculator{
-		assignments: make([]Grade, 0),
-		exams:       make([]Grade, 0),
-		essays:      make([]Grade, 0),
-	}
+	return &GradeCalculator{grades: make([]Grade, 0)}
 }
 
 func (gc *GradeCalculator) GetFinalGrade() string {
@@ -56,47 +50,29 @@ func (gc *GradeCalculator) GetFinalGrade() string {
 
 func (gc *GradeCalculator) AddGrade(name string, grade int, gradeType GradeType) {
 	switch gradeType {
-	case Assignment:
-		gc.assignments = append(gc.assignments, Grade{
-			Name:  name,
-			Grade: grade,
-			Type:  Assignment,
-		})
-	case Exam:
-		gc.exams = append(gc.exams, Grade{
-			Name:  name,
-			Grade: grade,
-			Type:  Exam,
-		})
-	case Essay:
-		gc.essays = append(gc.essays, Grade{
-			Name:  name,
-			Grade: grade,
-			Type:  Essay,
-		})
+	case Assignment, Exam, Essay:
+		gc.grades = append(gc.grades, Grade{Name: name, Grade: grade, Type: gradeType})
 	}
 }
 
 func (gc *GradeCalculator) calculateNumericalGrade() float64 {
-	assignment_average := computeAverage(gc.assignments)
-	exam_average := computeAverage(gc.exams)
-	essay_average := computeAverage(gc.essays)
-
-	weighted_grade := float64(assignment_average)*.5 + float64(exam_average)*.35 + float64(essay_average)*.15
-
-	return weighted_grade
+	assignmentAverage := computeAverage(gc.grades, Assignment)
+	examAverage := computeAverage(gc.grades, Exam)
+	essayAverage := computeAverage(gc.grades, Essay)
+	return assignmentAverage*.5 + examAverage*.35 + essayAverage*.15
 }
 
-func computeAverage(grades []Grade) float64 {
+func computeAverage(grades []Grade, kind GradeType) float64 {
+	sum, count := 0, 0
+	for _, grade := range grades {
+		if grade.Type == kind {
+			sum += grade.Grade
+			count++
+		}
+	}
 	// An empty category contributes zero; its weight is not redistributed.
-	if len(grades) == 0 {
+	if count == 0 {
 		return 0
 	}
-	sum := 0
-
-	for _, grade := range grades {
-		sum += grade.Grade
-	}
-
-	return float64(sum) / float64(len(grades))
+	return float64(sum) / float64(count)
 }
